@@ -134,6 +134,73 @@ RU_LAT_TO_CYR_DICT.update({
     u"iy": u"ый",  # dobriy => добрый
 })
 
+
+# This dictionary is to transliterate from Russian cyrillic to Latvian alphabet.
+RU_CYR_TO_LAV_DICT = {
+    u"А": u"A", u"а": u"a",
+    u"Б": u"B", u"б": u"b",
+    u"В": u"V", u"в": u"v",
+    u"Г": u"G", u"г": u"g",
+    u"Д": u"D", u"д": u"d",
+    u"ДЬ": u"Ģ", u"дь": u"ģ",
+    u"Э": u"E", u"э": u"e",
+    u"Е": u"E", u"е": u"e",
+    u"Ё": u"JO", u"ё": u"jo",
+    u"Ж": u"Ž", u"ж": u"ž",
+    u"З": u"Z", u"з": u"z",
+    u"И": u"I", u"и": u"i",
+    u"Й": u"J", u"й": u"j",
+    u"К": u"K", u"к": u"k",
+    u"Л": u"L", u"л": u"l",
+    u"ЛЬ": u"Ļ", u"ль": u"ļ",
+    u"М": u"M", u"м": u"m",
+    u"Н": u"N", u"н": u"n",
+    u"НЬ": u"Ņ", u"нь": u"ņ",
+    u"О": u"O", u"о": u"o",
+    u"П": u"P", u"п": u"p",
+    u"Р": u"R", u"р": u"r",
+    u"С": u"S", u"с": u"s",
+    u"Т": u"T", u"т": u"t",
+    u"ТЬ": u"Ķ", u"ть": u"ķ",
+    u"У": u"U", u"у": u"u",
+    u"Ф": u"F", u"ф": u"f",
+    u"Х": u"H", u"х": u"h",
+    u"Ц": u"C", u"ц": u"c",
+    u"Ч": u"Č", u"ч": u"č",
+    u"Ш": u"Š", u"ш": u"š",
+    u"Щ": u"ŠČ", u"щ": u"šč",
+    u"Ъ": u"", u"ъ": u"",
+    u"Ы": u"I", u"ы": u"i",
+    u"Ь": u"", u"ь": u"",
+    u"Ю": u"JU", u"ю": u"ju",
+    u"Я": u"JA", u"я": u"ja",
+}
+
+# This dictionary is to transliterate from Russian latin to cyrillic.
+RU_LAV_TO_CYR_DICT = {y: x for x, y in RU_CYR_TO_LAV_DICT.items()}
+RU_LAV_TO_CYR_DICT.update({
+    u"JŪ": u"Ю", u"jū": u"ю",
+    u"Jū": u"Ю",
+    u"JĀ": u"Я", u"jā": u"я",
+    u"Jā": u"Я",
+    u"Ju": u"Ю",
+    u"Šč": u"Щ",
+    u"Jo": u"Ё",
+    u"Ā": u"А", u"ā": u"а",
+    u"Ē": u"Е", u"ē": u"е",
+    u"Ī": u"И", u"ī": u"и",
+    u"Ģ": u"Г", u"ģ": u"г",
+    u"Ķ": u"К", u"ķ": u"к",
+    u"Ū": u"У", u"ū": u"у",
+    u"X": u"Х", u"x": u"х",
+    u"W": u"В", u"w": u"в",
+    u"I": u"И", u"i": u"и",
+    u"Y": u"Ы", u"y": u"ы",
+    u"Ī": u"И", u"ī": u"и",
+    u"'": u"ь",
+    u"#": u"ъ",  # dobriy => добрый
+})
+
 # Transliterate from Tajik cyrillic to latin
 TJ_CYR_TO_LAT_DICT = copy.deepcopy(RU_CYR_TO_LAT_DICT)
 # Change Mapping according to ISO 9 (1995)
@@ -286,5 +353,9 @@ TRANSLIT_DICT = {
     'ua': { # Ukrainian
         'tolatin': UA_CYR_TO_LAT_DICT,
         'tocyrillic': UA_LAT_TO_CYR_DICT
+    },
+    'lv': { # Latvian (for person name transliteration)
+        'tolatin': RU_CYR_TO_LAV_DICT,
+        'tocyrillic': RU_LAV_TO_CYR_DICT
     }
 }
